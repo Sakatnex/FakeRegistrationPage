@@ -27,15 +27,21 @@ submit.addEventListener('click', () => {
 	const passwordUser = password.value;
 	const rpasswordUser = rpassword.value;
 
-	
-        const user = new User(nameUser, loginUser, mailUser, passwordUser);
+	if (mailUser.contains("@") || passwordUser != rpasswordUser) 
+	{
+	    alert(`Не все поля заполнены верно!`) 
+	}
+	else
+	{
+            const user = new User(nameUser, loginUser, mailUser, passwordUser, rpasswordUser);
 
-	const userId = 'User' + createId(users);
-	users[userId] = user;
+	    const userId = 'User' + createId(users);
+	    users[userId] = user;
 
-	console.log(users);
+	    console.log(users);
 
-	alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию`) 
+	    alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию`) 
+	}
 })
 
 google.addEventListener('click', () => {
