@@ -2,16 +2,18 @@ let name = document.querySelector('#name');
 let login = document.querySelector('#login');
 let mail = document.querySelector('#mail');
 let password = document.querySelector('#password');
+let rpassword = document.querySelector('#rpassword');
 let submit = document.querySelector('#submit');
 let google = document.querySelector('#google');
 
 let users = {};
 
-function User(name, login, mail, password) {
+function User(name, login, mail, password, rpassword) {
 	this.name = name;
 	this.login = login;
 	this.mail = mail;
 	this.password = password;
+        this.rpassword = rpassword;
 }
 
 function createId(users) {
@@ -23,15 +25,24 @@ submit.addEventListener('click', () => {
 	const loginUser = login.value;
 	const mailUser = mail.value;
 	const passwordUser = password.value;
+	const rpasswordUser = rpassword.value;
 
-	const user = new User(nameUser, loginUser, mailUser, passwordUser);
+	if (passwordUser != rpasswordUser || mailUser.contains("@") == false) 
+	{
+		alert(`Не все поля заполнены верно!`) 
+	}
+	else
+	{
 
-	const userId = 'User' + createId(users);
-	users[userId] = user;
+	    const user = new User(nameUser, loginUser, mailUser, passwordUser);
 
-	console.log(users);
+	    const userId = 'User' + createId(users);
+	    users[userId] = user;
 
-	alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию!`)
+	    console.log(users);
+
+	    alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию!`)
+	}	
 })
 
 google.addEventListener('click', () => {
@@ -39,5 +50,5 @@ google.addEventListener('click', () => {
 	const loginUser = login.value;
 	const mailUser = mail.value;
 	const passwordUser = password.value;
-	alert(`${nameUser} (или же ${loginUser}), это не настоящая кнопка входа через Google!`)
+	alert(`Это не настоящая кнопка входа через Google!`)
 })
