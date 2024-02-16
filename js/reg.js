@@ -33,16 +33,18 @@ submit.addEventListener('click', () => {
 	}
 	else
 	{
+		break;
+	}
 
-	    const user = new User(nameUser, loginUser, mailUser, passwordUser);
+	    
+	const user = new User(nameUser, loginUser, mailUser, passwordUser);
 
-	    const userId = 'User' + createId(users);
-	    users[userId] = user;
+	const userId = 'User' + createId(users);
+	users[userId] = user;
 
-	    console.log(users);
+	console.log(users);
 
-	    alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию!`)
-	}	
+	alert(`${nameUser} (или же ${loginUser}), вы успешно прошли регистрацию!`)	
 })
 
 google.addEventListener('click', () => {
