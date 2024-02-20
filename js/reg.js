@@ -30,7 +30,7 @@ button.addEventListener('click', () => {
 	const passwordUser = password.value;
 	const rpasswordUser = rpassword.value;
 
-	if (nameUser == "",  loginUser == "", mailUser == "", phoneUser == "", passwordUser == "", rpasswordUser == "" || passwordUser != rpasswordUser || mailUser.includes("@") == false || phoneUser.includes("+" == false)
+	if (nameUser == "",  loginUser == "", mailUser == "", phoneUser == "", passwordUser == "", rpasswordUser == "" || passwordUser != rpasswordUser || mailUser.includes("@") == false || phoneUser.includes("+") == false)
 	{
 		alert(`Не все поля заполнены или заполнены неправильно!`)
 	}
